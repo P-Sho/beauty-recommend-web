@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace = 연결할 Mapper 인터페이스의 전체 이름 -->
+<mapper namespace="com.psho.beauty.mapper.ProductMapper">
+
+    <!-- id = 인터페이스 메서드 이름, resultType = 결과를 담을 클래스 (type-aliases-package 덕분에 짧게 씀) -->
+    <select id="findAll" resultType="Product">
+        SELECT id, name, price, image_file, description,
+               item_type, category, skin_type, personal_color, shade_no,
+               created_at, updated_at
+          FROM product
+         ORDER BY id
+    </select>
+
+    <!-- TODO(1주차): findById -->
+
+</mapper>

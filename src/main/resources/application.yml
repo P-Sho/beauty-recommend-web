@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: beauty-recommend-web
+  datasource:
+    # 비밀번호는 코드에 쓰지 않고 환경변수 DB_PASSWORD 로 넘긴다 (GitHub에 올라가지 않도록)
+    url: jdbc:mysql://localhost:${DB_PORT:3308}/beauty?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.psho.beauty.domain
+  configuration:
+    map-underscore-to-camel-case: true   # DB 컬럼 item_type -> 자바 필드 itemType
+
+logging:
+  level:
+    com.psho.beauty.mapper: debug   # 실행되는 SQL을 콘솔에서 확인
